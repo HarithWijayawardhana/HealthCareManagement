@@ -27,7 +27,7 @@ public class PatientRegsiterService {
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String hello() {
+	public String readPatients() {
 		return patientObj.readPatient();
 	}
 
