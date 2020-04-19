@@ -5,17 +5,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TimeSlot {
 	
-	private String timeSlotID ;
+	private int timeSlotID ;
 	private int docID;
 	private String startTime ;
 	private String endTime;
 	private int wardID;
 	private int patientLinit;
 	private String date;
-	public String getTimeSlotID() {
+	public int getTimeSlotID() {
 		return timeSlotID;
 	}
-	public void setTimeSlotID(String timeSlotID) {
+	public void setTimeSlotID(int timeSlotID) {
 		this.timeSlotID = timeSlotID;
 	}
 	public int getDocID() {
@@ -61,7 +61,7 @@ public class TimeSlot {
 		super();
 	}
 	
-	public TimeSlot(String timeSlotID, int docID, String startTime, String endTime, int wardID, int patientLinit,
+	public TimeSlot(int timeSlotID, int docID, String startTime, String endTime, int wardID, int patientLinit,
 			String date) {
 		super();
 		this.timeSlotID = timeSlotID;
