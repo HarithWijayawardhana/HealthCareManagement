@@ -94,6 +94,43 @@ public class MySqlDBConf {
 	}
 	
 	
+	public static ArrayList<Apointment> getAppointments(int timeSlotID)
+	{
+		ArrayList<Apointment> list  = new ArrayList<Apointment>();
+		try {
+			
+			String query = "SELECT * FROM mydb.appointment WHERE timeSlot = '"+ String.valueOf(timeSlotID) +"'";
+			
+			PrepareStat = Conn.prepareStatement(query);
+			//PrepareStat.setInt(0,123);
+			
+			//System.out.println(PrepareStat.toString());
+			
+			ResultSet rs = PrepareStat.executeQuery();
+			
+			while(rs.next()) 
+			{
+				Apointment ap = new Apointment(
+						rs.getInt("number"),
+						rs.getInt("timeSlot"),
+						rs.getInt("patientID")
+						);
+				list.add(ap);
+			}
+
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return list;
+	} 
+	
+	
 	public static ArrayList<TimeSlot> getTimeSlots(int docID)
 	{
 		
